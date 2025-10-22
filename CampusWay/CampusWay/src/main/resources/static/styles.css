@@ -1,0 +1,229 @@
+body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Full viewport height */
+            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 16px;
+            color: #343a40;
+        }
+
+        .container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and map vertically on smaller screens */
+    }
+}
+
+
+        /* Sidebar Styling */
+        .sidebar {
+    background: #f8f9fa; /* Light grey background */
+    border-right: 1px solid #ddd; /* Subtle border */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40; /* Darker text color */
+    margin-bottom: 20px;
+}
+
+.sidebar label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+.sidebar select, .sidebar button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #495057;
+    background-color: #fff;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar button {
+    background-color: #007bff; /* Blue color */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background-color: #0056b3;
+}
+
+/* Menu Bar Styles */
+.menu-bar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+  }
+
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+
+  .menu-dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .menu-dropdown a:hover {
+    background-color: #ddd;
+  }
+
+
+        .compass {
+            font-size: 0.9rem;
+            color: #28a745;
+            padding: 5px;
+            border: 1px solid #d4d4d4;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #e9f7ec;
+        }
+
+        /* Map Styling */
+        #map {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);/* Fallback background before map loads */
+        }
+        .instruction-box {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            font-size: 16px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+
+        /* Fade-in Animation for Instruction Box */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50%) translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 90%;
+                font-size: 12px;
+            }
+        }
+        /* For tablets and smaller screens */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; /* Stack sidebar and map vertically */
+    }
+
+    .sidebar {
+        width: 100%; /* Full width on smaller screens */
+        height: auto; /* Auto height to fit content */
+        padding: 10px;
+    }
+
+    #map {
+        height: calc(100vh - 250px); /* Remaining height for the map */
+    }
+
+    .instruction-box {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 768px) {
+    .sidebar h2 {
+        font-size: 1.2rem; /* Smaller font size for the title */
+    }
+
+    .sidebar select, .sidebar button {
+        font-size: 0.9rem; /* Smaller font size for inputs/buttons */
+    }
+
+    .instruction-box {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+#map {
+    flex-grow: 1;
+    height: 100%; /* This ensures it takes the available space */
+}
+
+@media (max-width: 768px) {
+    #map {
+        height: calc(100vh - 300px); /* Adjust map height for smaller devices */
+    }
+}
+#toggleSidebar {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#toggleSidebar:hover {
+    background: #0056b3;
+}
+.leaflet-popup-content-wrapper {
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaflet-popup-tip {
+    background: #f8f9fa;
+}

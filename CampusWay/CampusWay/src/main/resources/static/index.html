@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indoor Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <div class="container">
+            <!-- Toggle button for mobile -->
+            <button id="toggleSidebar">☰ Menu</button>
+    
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h2>Indoor Navigation</h2>
+                <label for="source">Source</label>
+                <select id="source">
+                <option value="" disabled selected>Select location...</option>                    
+                </select>
+                <label for="destination">Destination</label>
+                <select id="destination">
+                    <option value="" disabled selected>Select location...</option>
+                </select>
+                <button onclick="findRoute()">Find Route</button>
+                <div class="compass" id="compass">Compass inactive</div>
+            </div>
+            <div class="menu-bar">
+                <!-- Menu Icon -->
+                <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+                <!-- Dropdown Menu -->
+                <div id="dropdownMenu" class="menu-dropdown">
+                  <a href="#">Help</a>
+                  <a href="#">About</a>
+                  <a href="#">Community</a>
+                  <a href="#">Updates</a>
+                  <a href="#">Contact</a>
+                </div>
+              </div>
+    
+            <!-- Map -->
+            <div id="map"></div>
+        </div>
+    
+        <!-- Instruction Box -->
+        <div id="instruction-box" class="instruction-box">
+            Select source and destination to begin navigation.
+        </div>
+    </body>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
